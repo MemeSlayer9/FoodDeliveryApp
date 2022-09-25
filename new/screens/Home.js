@@ -3,8 +3,9 @@ import { View, SafeAreaView, FlatList, Text } from 'react-native'
 
 import { COLORS, NFTData} from '../constants';
 import { NFTCard, HomeHeader, FocusedStatusBar } from '../components';
+import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [nftData, setNftData] = useState(NFTData);
 
   const handleSearch = (value) => {
@@ -52,11 +53,28 @@ const Home = () => {
         </View>
       </View>
         
-
-
+      <Pressable   
+              onPress={() => navigation.navigate("Cart")}
+              style={{
+            backgroundColor: "#001F2D",
+            padding: 10,
+            position: "absolute",
+            bottom: 10,
+            left: 150,
+            borderRadius: 6,
+          }} >
+                <Text  style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: 16,
+              color: "white",
+              
+            }}>Go TO CART</Text>
+              </Pressable>
+            
+          
     </SafeAreaView>
-
-
+ 
   )
 }
 
